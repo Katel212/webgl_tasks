@@ -9,8 +9,8 @@ export class LightController {
     currentMode: string;
     gl: WebGL2RenderingContext;
     //Направление глобального света
-    globalLightDirection: number[] = [0.0,1,0.0];
-    globalLightAmbient: number[] = [0.1,0.1,0.1];
+    globalLightDirection: number[] = [0.0,1,-0.3];
+    globalLightAmbient: number[] = [0.2,0.2,0.2];
     globalLightDiffuse: number[] = [0.7,0.7,0.7];
     globalLightSpecular: number[] = [1.0,1.0,1.0];
 
@@ -35,9 +35,9 @@ export class LightController {
     ProjLightEnabledLocation: WebGLUniformLocation | null;
 
 
-    constructor(gl: WebGL2RenderingContext, readonly program: ShaderProgram, lm: string, ls:LightSource) {
+    constructor(gl: WebGL2RenderingContext, readonly program: ShaderProgram) {
         this.program = program;
-        this.currentMode = lm;
+        this.currentMode = "directional";
         this.gl = gl;
 
         this.lightSources = [];
@@ -66,8 +66,8 @@ export class LightController {
         this.GlobalLightEnabledLocation = this.program.getUniformLocation("globalLight");
         this.PointLightEnabledLocation = this.program.getUniformLocation("pointLight");
         this.ProjLightEnabledLocation = this.program.getUniformLocation("spotLight");
-        this.switch_mode(lm);
-        this.add_light_source(ls);
+        // this.switch_mode(lm);
+        // this.add_light_source(ls);
     }
 
     add_light_source(ls: LightSource) {

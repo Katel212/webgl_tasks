@@ -63,7 +63,7 @@ void main()
 
         sumAmbient += ambient;
         sumDiffuse += diffuse;
-        sumSpecular += specular;
+        sumSpecular += 0.4*specular;
     }
 
     if (pointLight)
@@ -84,7 +84,7 @@ void main()
 
             sumAmbient += ambient;
             sumDiffuse += diffuse;
-            sumSpecular += specular;
+            sumSpecular += 0.4*specular;
         }
     }
 
@@ -111,7 +111,7 @@ void main()
                 
                 sumAmbient += ambient;
                 sumDiffuse += diffuse;
-                sumSpecular += specular;     
+                sumSpecular += 0.4*specular;     
             }else
             {
                 sumAmbient += slAmbient[i];
@@ -123,6 +123,6 @@ void main()
     sumDiffuse = clamp(sumDiffuse, 0.0, 1.0);
     sumSpecular = clamp(sumSpecular, 0.0, 1.0);
 
-    fragColor.xyz = fragColor.xyz * (sumAmbient + sumDiffuse) + sumSpecular;
+    fragColor.rgb = fragColor.rgb * (sumAmbient + sumDiffuse) + sumSpecular;
 
 }

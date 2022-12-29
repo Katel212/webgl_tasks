@@ -140,19 +140,19 @@ class Main {
         );
         
         this.gl.useProgram(this.phongProgram.program);
-        this.phongLightController = new LightController(this.gl, this.phongProgram, "directional", ls0)
+        this.phongLightController = new LightController(this.gl, this.phongProgram)
         this.phongLightController.add_light_source(ls1);
         this.phongLightController.add_spotlight_source(spls0);
         //this.phongLightController.add_spotlight_source(spls1);
         
         this.gl.useProgram(this.toonProgram.program);
-        this.toonLightController = new LightController(this.gl, this.toonProgram, "directional", ls0)
+        this.toonLightController = new LightController(this.gl, this.toonProgram)
         this.toonLightController.add_light_source(ls1);
         this.toonLightController.add_spotlight_source(spls0);
         //this.toonLightController.add_spotlight_source(spls1);
 
         this.gl.useProgram(this.bidirectProgram.program);
-        this.bidirectionalLightController = new LightController(this.gl, this.bidirectProgram, "directional", ls0)
+        this.bidirectionalLightController = new LightController(this.gl, this.bidirectProgram)
         this.bidirectionalLightController.add_light_source(ls1);
         this.bidirectionalLightController.add_spotlight_source(spls0);
         //this.bidirectionalLightController.add_spotlight_source(spls1);
